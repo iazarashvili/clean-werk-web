@@ -1,9 +1,10 @@
 /**
- * SimplyBook v2 – volle iframe-URL aus dem Admin (Integration).
- * Basis-URL (Origin) wird für widget.js und SimplybookWidget genutzt.
+ * SimplyBook v2 – iframe-URL aus Ihrem Admin (Integration → Website widget).
+ * `null` = kein Fremd-Konto; Platzhalter auf der Seite + Link zur Buchungsseite (Test/Dev).
+ * Beispiel wenn Sie SimplyBook haben:
+ *   'https://IHR-KUNDE.simplybook.it/v2/?widget-type=iframe&theme=default&timeline=modern&datepicker=top_calendar'
  */
-export const SIMPLYBOOK_IFRAME_URL: string | null =
-  'https://rsp6520117175.simplybook.it/v2/?widget-type=iframe&theme=default&timeline=modern&datepicker=top_calendar';
+export const SIMPLYBOOK_IFRAME_URL: string | null = null;
 
 /** Origin z. B. https://kunde.simplybook.it */
 export function getSimplybookBaseUrl(fullWidgetUrl: string): string | null {

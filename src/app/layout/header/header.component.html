@@ -1,26 +1,56 @@
 <header class="header" role="banner">
   <div class="header__inner">
-    <a routerLink="/" class="header__brand" aria-label="CleanWerk Startseite">
+    <a routerLink="/" class="header__brand" aria-label="CleanWerk Startseite" (click)="closeMenu()">
       <span class="header__logo">CleanWerk</span>
     </a>
-    <nav class="header__nav" aria-label="Hauptnavigation">
+
+    <button
+      type="button"
+      class="header__burger"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen"
+      aria-controls="header-main-nav"
+      [attr.aria-label]="menuOpen ? 'Menü schließen' : 'Menü öffnen'"
+    >
+      @if (!menuOpen) {
+        <svg class="header__burger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+      } @else {
+        <svg class="header__burger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      }
+    </button>
+
+    <nav
+      id="header-main-nav"
+      class="header__nav"
+      [class.header__nav--open]="menuOpen"
+      aria-label="Hauptnavigation"
+    >
       <a
         routerLink="/"
         routerLinkActive="header__link--active"
         [routerLinkActiveOptions]="{ exact: true }"
         class="header__link"
+        (click)="closeMenu()"
       >
         Startseite
       </a>
-      <a
-        routerLink="/"
-        fragment="features"
-        class="header__link"
-      >
-        Leistungen
-      </a>
-      <a routerLink="/" fragment="book-now" class="header__link">Termin buchen</a>
-      <a routerLink="/" fragment="kontakt" class="header__link">Kontakt</a>
+      <a routerLink="/" fragment="features" class="header__link" (click)="closeMenu()">Leistungen</a>
+      <a routerLink="/" fragment="book-now" class="header__link" (click)="closeMenu()">Termin buchen</a>
+      <a routerLink="/" fragment="kontakt" class="header__link" (click)="closeMenu()">Kontakt</a>
     </nav>
   </div>
+
+  @if (menuOpen) {
+    <button
+      type="button"
+      class="header__backdrop"
+      (click)="closeMenu()"
+      aria-hidden="true"
+      tabindex="-1"
+    ></button>
+  }
 </header>
