@@ -1,6 +1,9 @@
 # GitHub Pages: nach Push auf main bauen und unter
 # https://<USER>.github.io/<REPO-NAME>/ veröffentlichen
 #
+# pull_request → gleicher Build wie bei Push, aber kein Deploy.
+# Wenn Branch protection „required status checks“ nutzt, sonst wartet der Merge ewig (Check startet nie).
+#
 # Einmalig im Repo: Settings → Pages → Source: „GitHub Actions“
 # Spezialfall Nutzerseite <USER>.github.io (Repo genau so benannt): base-href muss "/" sein – siehe README unten.
 
@@ -8,6 +11,8 @@ name: Deploy to GitHub Pages
 
 on:
   push:
+    branches: [main, master]
+  pull_request:
     branches: [main, master]
   workflow_dispatch:
 
@@ -39,11 +44,14 @@ jobs:
       - name: SPA refresh auf Unterpfaden (GitHub Pages 404)
         run: cp dist/clean-werk-web/browser/index.html dist/clean-werk-web/browser/404.html
 
-      - uses: actions/upload-pages-artifact@v3
+      - name: Upload Pages artifact
+        if: github.event_name == 'push'
+        uses: actions/upload-pages-artifact@v3
         with:
           path: dist/clean-werk-web/browser
 
   deploy:
+    if: github.event_name == 'push'
     needs: build
     runs-on: ubuntu-latest
     environment:
