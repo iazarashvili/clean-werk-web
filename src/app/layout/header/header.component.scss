@@ -8,13 +8,15 @@
 }
 
 .header__inner {
+  position: relative;
+  z-index: 62;
   max-width: 72rem;
   margin: 0 auto;
   padding: 0.875rem 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .header__brand {
@@ -28,6 +30,36 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--cw-text);
+}
+
+.header__burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid var(--cw-border);
+  border-radius: 0.5rem;
+  background: var(--cw-surface);
+  color: var(--cw-text);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    background: var(--cw-accent-soft);
+    border-color: transparent;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--cw-accent);
+    outline-offset: 2px;
+  }
+}
+
+.header__burger-icon {
+  width: 1.35rem;
+  height: 1.35rem;
 }
 
 .header__nav {
@@ -56,14 +88,66 @@
   background: var(--cw-accent-soft);
 }
 
-@media (max-width: 480px) {
-  .header__inner {
-    flex-wrap: wrap;
-    justify-content: center;
+.header__backdrop {
+  display: none;
+}
+
+/* Mobile: Burger + seitliches Panel */
+@media (max-width: 767px) {
+  .header__burger {
+    display: inline-flex;
   }
 
   .header__nav {
-    width: 100%;
-    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    height: 100dvh;
+    width: min(19rem, 88vw);
+    margin: 0;
+    padding: 4.75rem 1rem 1.5rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.35rem;
+    background: var(--cw-surface);
+    border-left: 1px solid var(--cw-border);
+    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.12);
+    transform: translateX(100%);
+    transition: transform 0.22s ease;
+    z-index: 61;
+    overflow-y: auto;
+  }
+
+  .header__nav--open {
+    transform: translateX(0);
+  }
+
+  .header__link {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  .header__backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    border: none;
+    padding: 0;
+    margin: 0;
+    background: rgba(15, 23, 42, 0.45);
+    cursor: pointer;
+    animation: header-backdrop-in 0.2s ease;
+  }
+}
+
+@keyframes header-backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
