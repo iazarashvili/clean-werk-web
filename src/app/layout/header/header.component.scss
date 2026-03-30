@@ -1,6 +1,12 @@
+:host {
+  display: block;
+}
+
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 50;
   background: var(--cw-surface);
   border-bottom: 1px solid var(--cw-border);

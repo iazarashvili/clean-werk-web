@@ -4,6 +4,8 @@
 
 @layer base {
   :root {
+    /* Fixed header: must match header inner row height (padding + max(logo, burger)) */
+    --cw-header-height: 4.5rem;
     --cw-bg: #f6f8f7;
     --cw-surface: #ffffff;
     --cw-text: #1a2e28;
@@ -23,6 +25,7 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: var(--cw-header-height);
   }
 
   body {

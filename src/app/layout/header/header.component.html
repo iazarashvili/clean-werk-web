@@ -1,6 +1,11 @@
 <header class="header" role="banner">
   <div class="header__inner">
-    <a routerLink="/" class="header__brand" aria-label="CleanWerk Startseite" (click)="closeMenu()">
+    <a
+      routerLink="/"
+      class="header__brand"
+      aria-label="CleanWerk Startseite"
+      (click)="onBrandClick($event)"
+    >
       <span class="header__logo">CleanWerk</span>
     </a>
 
