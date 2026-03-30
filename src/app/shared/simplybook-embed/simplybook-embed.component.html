@@ -1,0 +1,47 @@
+@if (!rawUrl) {
+  <div
+    class="mx-auto min-h-[12rem] w-full max-w-[540px] rounded-2xl border-2 border-dashed border-violet-300 bg-amber-50/80 px-6 py-10 text-center text-sm text-zinc-800 shadow-inner"
+    role="status"
+  >
+    <p class="text-sm leading-relaxed">
+      Hier erscheint Ihr SimplyBook-Terminkalender, sobald Sie die Widget-URL in
+      <code class="rounded bg-violet-100/80 px-1.5 py-0.5 text-xs text-violet-900"
+        >src/app/config/simplybook-widget.ts</code
+      >
+      eintragen.
+    </p>
+    @if (showInternalBookingLink) {
+      <a
+        routerLink="/booking"
+        class="mt-5 inline-flex rounded-full bg-violet-900 px-6 py-2.5 text-sm font-semibold text-amber-50 transition hover:bg-violet-800"
+      >
+        Zur Buchungsseite
+      </a>
+    }
+  </div>
+} @else {
+  <!-- Rahmen wie eine ruhige Karten-UI (SimplyBook-Inhalt kommt aus dem Widget) -->
+  <div
+    class="mx-auto w-full max-w-[540px] rounded-2xl border border-slate-200/90 bg-white p-4 shadow-[0_8px_30px_rgb(15,23,42,0.08)] ring-1 ring-slate-100 sm:p-6"
+  >
+    @if (iframeFallbackSrc; as src) {
+      <iframe
+        [src]="src"
+        title="Booking widget"
+        width="100%"
+        height="1000"
+        class="block w-full rounded-lg border-0 bg-white"
+        loading="lazy"
+        scrolling="no"
+        [attr.frameborder]="0"
+      ></iframe>
+    } @else {
+      <div
+        [id]="containerId"
+        class="min-h-[960px] w-full rounded-lg bg-white"
+        aria-busy="true"
+        aria-label="Kalender wird geladen"
+      ></div>
+    }
+  </div>
+}

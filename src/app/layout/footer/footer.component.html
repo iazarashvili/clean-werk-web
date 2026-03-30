@@ -1,0 +1,30 @@
+<footer class="footer" role="contentinfo">
+  <div class="footer__inner">
+    <div class="footer__col">
+      <p class="footer__brand">CleanWerk</p>
+      <p class="footer__tagline">
+        Ihr Partner für zuverlässige Reinigung – diskret, gründlich und fair kalkuliert.
+      </p>
+    </div>
+    <div class="footer__col">
+      <p class="footer__heading">Navigation</p>
+      <ul class="footer__list">
+        <li><a routerLink="/">Startseite</a></li>
+        <li><a routerLink="/" fragment="features">Leistungen</a></li>
+        <li><a routerLink="/" fragment="kontakt">Kontakt</a></li>
+        <li><a routerLink="/" fragment="book-now">Termin buchen</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <p class="footer__heading">Kontakt</p>
+      <p class="footer__text">
+        Musterstraße 1<br />
+        10115 Berlin<br />
+        <a [href]="mailHref">{{ mailDisplay }}</a>
+      </p>
+    </div>
+  </div>
+  <div class="footer__bar">
+    <p>© {{ currentYear }} CleanWerk. Alle Rechte vorbehalten.</p>
+  </div>
+</footer>

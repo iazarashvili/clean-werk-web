@@ -1,0 +1,26 @@
+<header class="header" role="banner">
+  <div class="header__inner">
+    <a routerLink="/" class="header__brand" aria-label="CleanWerk Startseite">
+      <span class="header__logo">CleanWerk</span>
+    </a>
+    <nav class="header__nav" aria-label="Hauptnavigation">
+      <a
+        routerLink="/"
+        routerLinkActive="header__link--active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="header__link"
+      >
+        Startseite
+      </a>
+      <a
+        routerLink="/"
+        fragment="features"
+        class="header__link"
+      >
+        Leistungen
+      </a>
+      <a routerLink="/" fragment="book-now" class="header__link">Termin buchen</a>
+      <a routerLink="/" fragment="kontakt" class="header__link">Kontakt</a>
+    </nav>
+  </div>
+</header>

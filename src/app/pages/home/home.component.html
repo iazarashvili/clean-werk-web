@@ -1,0 +1,339 @@
+<div class="min-h-screen bg-amber-50/80 text-zinc-900 antialiased">
+  <!-- Hero -->
+  <section
+    class="relative scroll-mt-24 overflow-hidden border-b border-violet-200/40 bg-gradient-to-br from-violet-950 via-slate-900 to-zinc-950 px-5 py-20 sm:px-8 sm:py-28"
+    aria-labelledby="hero-heading"
+  >
+    <div
+      class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-amber-400/15 blur-3xl"
+      aria-hidden="true"
+    ></div>
+    <div
+      class="pointer-events-none absolute -bottom-16 left-1/4 h-56 w-56 rounded-full bg-violet-500/20 blur-3xl"
+      aria-hidden="true"
+    ></div>
+    <div class="relative mx-auto max-w-3xl text-center">
+      <p class="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/90">
+        Reinigungsservice
+      </p>
+      <h1
+        id="hero-heading"
+        class="font-display text-balance text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl"
+      >
+        Ihr Partner für präzise und zuverlässige Reinigung
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-pretty text-base text-violet-100/90 sm:text-lg">
+        Professionelle Reinigung für Büros, Gebäude und Wohnungen – mit klarer Abstimmung,
+        festen Qualitätsstandards und dem Anspruch, dass sich Ihre Räume jeden Tag gut anfühlen.
+      </p>
+      <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+        <a
+          routerLink="/"
+          fragment="book-now"
+          class="inline-flex min-h-11 min-w-[11rem] items-center justify-center rounded-full bg-amber-400 px-8 py-3 text-sm font-semibold text-violet-950 shadow-lg shadow-black/25 transition hover:bg-amber-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+        >
+          Jetzt Buchen
+        </a>
+        <a
+          routerLink="/"
+          fragment="features"
+          class="inline-flex min-h-11 items-center justify-center rounded-full border border-white/25 bg-white/5 px-8 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
+        >
+          Leistungen ansehen
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro (strukturell wie Referenz: Zwischenüberschrift vor Services) -->
+  <section class="scroll-mt-24 border-b border-violet-100 bg-white/70 px-5 py-14 sm:px-8" aria-labelledby="intro-heading">
+    <div class="mx-auto max-w-3xl text-center">
+      <h2 id="intro-heading" class="font-display text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl">
+        Professionelle Reinigung für Büros und Gebäude
+      </h2>
+      <p class="mt-4 text-pretty text-zinc-600">
+        Von der Unterhaltsreinigung bis zur Spezialreinigung – wir planen mit Ihnen, liefern
+        verlässlich und dokumentieren auf Wunsch die wichtigsten Schritte transparent.
+      </p>
+    </div>
+  </section>
+
+  <!-- Leistungen / Features -->
+  <section
+    id="features"
+    class="scroll-mt-24 px-5 py-16 sm:px-8 sm:py-20"
+    aria-labelledby="features-heading"
+  >
+    <div class="mx-auto max-w-6xl">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 id="features-heading" class="font-display text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl">
+          Unsere Leistungen im Überblick
+        </h2>
+        <p class="mt-3 text-pretty text-zinc-600">
+          Wählen Sie die passende Leistung – kombinierbar und auf Ihre Flächen und Zeiten abgestimmt.
+        </p>
+      </div>
+      <ul class="mt-12 grid list-none grid-cols-1 gap-6 p-0 sm:grid-cols-2 lg:grid-cols-3">
+        @for (item of services; track item.id) {
+          <li>
+            <article
+              class="group flex h-full flex-col rounded-2xl border border-violet-100 bg-white p-6 shadow-sm shadow-violet-950/5 transition hover:border-violet-200 hover:shadow-md"
+            >
+              <div
+                class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-violet-100 text-violet-700 transition group-hover:bg-violet-200/80"
+                aria-hidden="true"
+              >
+                @switch (item.id) {
+                  @case ('office') {
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M3.75 21h16.5M4.5 3h15M5 3v18m14-18v18M8 9.75h.008v.008H8V9.75zm0 3h.008v.008H8v-.008zm0 3h.008v.008H8V15.75zm3-6h.008v.008H11V9.75zm0 3h.008v.008H11v-.008zm0 3h.008v.008H11V15.75zm3-6h.008v.008H14V9.75zm0 3h.008v.008H14v-.008zm0 3h.008v.008H14V15.75z"
+                      />
+                    </svg>
+                  }
+                  @case ('building') {
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M2.25 21h19.5M3.75 3h16.5v18H3.75V3zm4.5 6h.75v.75H8.25V9zm0 3h.75v.75H8.25V12zm0 3h.75v.75H8.25V15zm4.5-6h.75v.75H12.75V9zm0 3h.75v.75H12.75V12zm0 3h.75v.75H12.75V15zm4.5-6h.75v.75h-.75V9zm0 3h.75v.75h-.75V12zm0 3h.75v.75h-.75V15z"
+                      />
+                    </svg>
+                  }
+                  @case ('hotel') {
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M3.75 21h16.5M3.75 3.75h16.5v16.5H3.75V3.75zM9 7.5h.008v.008H9V7.5zm0 3h.008v.008H9v-.008zm0 3h.008v.008H9V13.5zm6-6h.008v.008H15V7.5zm0 3h.008v.008H15v-.008zm0 3h.008v.008H15V13.5z"
+                      />
+                    </svg>
+                  }
+                  @case ('apartment') {
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m2.25 12 8.954-8.955.077-.08a.75.75 0 011.06 0l9 9a.75.75 0 01-1.06 1.06l-.755-.754V21a.75.75 0 01-.75.75h-5.25a.75.75 0 01-.75-.75v-4.5H9.75A.75.75 0 019 16.5V11.25H4.5a.75.75 0 01-.75-.75V7.68l-.755.754A.75.75 0 012.25 12z"
+                      />
+                    </svg>
+                  }
+                  @case ('special') {
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"
+                      />
+                    </svg>
+                  }
+                  @case ('maintenance') {
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  }
+                }
+              </div>
+              <h3 class="text-lg font-semibold text-zinc-900">{{ item.title }}</h3>
+              <p class="mt-2 flex-1 text-sm leading-relaxed text-zinc-600">{{ item.description }}</p>
+              <a
+                routerLink="/"
+                fragment="book-now"
+                class="mt-5 inline-flex text-sm font-semibold text-violet-700 underline-offset-4 hover:text-violet-900 hover:underline"
+              >
+                Termin anfragen
+              </a>
+            </article>
+          </li>
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- Über uns -->
+  <section
+    id="about"
+    class="scroll-mt-24 border-y border-violet-100 bg-white/90 px-5 py-16 sm:px-8 sm:py-20"
+    aria-labelledby="about-heading"
+  >
+    <div class="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-violet-600">Über uns</p>
+        <h2 id="about-heading" class="mt-2 font-display text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl">
+          Verlässlichkeit und Sorgfalt im Alltag
+        </h2>
+        <p class="mt-4 text-pretty text-zinc-600">
+          CleanWerk steht für strukturierte Abläufe, geschulte Teams und eine Kommunikation, die
+          Sie nicht im Unklaren lässt. Ob Büro, Objekt oder private Wohnung: wir stimmen
+          Reinigungsintervalle, Zugänge und Materialien mit Ihnen ab – damit Ergebnis und
+          Termintreue passen.
+        </p>
+        <p class="mt-4 text-pretty text-zinc-600">
+          Umwelt- und gesundheitsschonende Produkte setzen wir dort ein, wo es Sinn ergibt; auf
+          Wunsch dokumentieren wir verwendete Standards für Ihre Objektverwaltung oder Ihr Team.
+        </p>
+      </div>
+      <div class="rounded-2xl border border-dashed border-violet-200 bg-amber-50/50 p-8">
+        <p class="font-display text-lg font-semibold text-zinc-900">Kurz &amp; klar</p>
+        <ul class="mt-4 space-y-3 text-sm text-zinc-600">
+          <li class="flex gap-2">
+            <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-500" aria-hidden="true"></span>
+            Feste Ansprechpartner und nachvollziehbare Abläufe
+          </li>
+          <li class="flex gap-2">
+            <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-500" aria-hidden="true"></span>
+            Flexible Einsatzzeiten – abgestimmt auf Betrieb oder Privathaushalt
+          </li>
+          <li class="flex gap-2">
+            <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-500" aria-hidden="true"></span>
+            Buchung und Anfragen über klare Kanäle – ohne Kleingedrucktes
+          </li>
+        </ul>
+        <a
+          routerLink="/"
+          fragment="book-now"
+          class="mt-8 inline-flex rounded-full bg-violet-900 px-6 py-2.5 text-sm font-semibold text-amber-50 transition hover:bg-violet-800"
+        >
+          Jetzt Buchen
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Online buchen (SimplyBook iframe, wie clean-werk.at #book-now) -->
+  <section
+    id="book-now"
+    class="scroll-mt-24 border-t border-violet-100 bg-gradient-to-b from-white to-amber-50/30 px-5 py-16 sm:px-8 sm:py-20"
+    aria-labelledby="book-now-heading"
+  >
+    <div class="mx-auto max-w-5xl">
+      <h2
+        id="book-now-heading"
+        class="font-display text-center text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl"
+      >
+        Professionelle Sauberkeit für höchste Ansprüche
+      </h2>
+      <p class="mx-auto mt-6 max-w-2xl text-pretty text-center text-zinc-600">
+        Buchen Sie Ihren Reinigungstermin einfach und schnell – wir führen Sie Schritt für Schritt durch den Prozess,
+        damit alles reibungslos verläuft.
+      </p>
+      <div class="mt-10">
+        <app-simplybook-embed />
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontakt -->
+  <section
+    id="kontakt"
+    class="scroll-mt-24 px-5 py-16 sm:px-8 sm:py-20"
+    aria-labelledby="kontakt-heading"
+  >
+    <div class="mx-auto w-full max-w-[540px]">
+      <div class="text-center">
+        <h2 id="kontakt-heading" class="font-display text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl">
+          Kontakt
+        </h2>
+        <p class="mt-3 text-pretty text-zinc-600">
+          Schreiben Sie uns – wir melden uns zeitnah mit einem Vorschlag oder Rückfragen zu Ihrem Objekt.
+        </p>
+      </div>
+      <div
+        class="mt-10 h-[800px] rounded-2xl border border-slate-200/90 bg-white p-4 shadow-[0_8px_30px_rgb(15,23,42,0.08)] ring-1 ring-slate-100 sm:p-6"
+      >
+        <form
+          class="flex h-full max-h-full flex-col gap-5 overflow-y-auto"
+          [formGroup]="contactForm"
+          (ngSubmit)="onContactSubmit()"
+          novalidate
+        >
+        @if (contactSubmitSuccess) {
+          <p
+            class="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900"
+            role="status"
+          >
+            Vielen Dank! Ihre Nachricht wurde übermittelt. (Demo – noch kein Versand an ein Backend.)
+          </p>
+        }
+        <div>
+          <label for="contact-name" class="block text-sm font-medium text-zinc-800">Name</label>
+          <input
+            id="contact-name"
+            type="text"
+            formControlName="name"
+            autocomplete="name"
+            class="mt-1.5 w-full rounded-xl border border-zinc-200 bg-amber-50/30 px-4 py-2.5 text-zinc-900 outline-none ring-violet-500/40 transition placeholder:text-zinc-400 focus:border-violet-400 focus:ring-2"
+            [class.border-red-400]="fieldError('name')"
+            [attr.aria-invalid]="fieldError('name') ? true : null"
+            [attr.aria-describedby]="fieldError('name') ? 'contact-name-err' : null"
+          />
+          @if (fieldError('name'); as err) {
+            <p id="contact-name-err" class="mt-1.5 text-sm text-red-600">{{ err }}</p>
+          }
+        </div>
+        <div>
+          <label for="contact-email" class="block text-sm font-medium text-zinc-800">E-Mail-Adresse</label>
+          <input
+            id="contact-email"
+            type="email"
+            formControlName="email"
+            autocomplete="email"
+            class="mt-1.5 w-full rounded-xl border border-zinc-200 bg-amber-50/30 px-4 py-2.5 text-zinc-900 outline-none ring-violet-500/40 transition placeholder:text-zinc-400 focus:border-violet-400 focus:ring-2"
+            [class.border-red-400]="fieldError('email')"
+            [attr.aria-invalid]="fieldError('email') ? true : null"
+            [attr.aria-describedby]="fieldError('email') ? 'contact-email-err' : null"
+          />
+          @if (fieldError('email'); as err) {
+            <p id="contact-email-err" class="mt-1.5 text-sm text-red-600">{{ err }}</p>
+          }
+        </div>
+        <div>
+          <label for="contact-subject" class="block text-sm font-medium text-zinc-800">Betreff</label>
+          <input
+            id="contact-subject"
+            type="text"
+            formControlName="subject"
+            autocomplete="off"
+            class="mt-1.5 w-full rounded-xl border border-zinc-200 bg-amber-50/30 px-4 py-2.5 text-zinc-900 outline-none ring-violet-500/40 transition placeholder:text-zinc-400 focus:border-violet-400 focus:ring-2"
+            [class.border-red-400]="fieldError('subject')"
+            [attr.aria-invalid]="fieldError('subject') ? true : null"
+            [attr.aria-describedby]="fieldError('subject') ? 'contact-subject-err' : null"
+          />
+          @if (fieldError('subject'); as err) {
+            <p id="contact-subject-err" class="mt-1.5 text-sm text-red-600">{{ err }}</p>
+          }
+        </div>
+        <div class="flex min-h-0 flex-1 flex-col">
+          <label for="contact-message" class="block text-sm font-medium text-zinc-800">
+            Nachricht <span class="font-normal text-zinc-500">(optional)</span>
+          </label>
+          <textarea
+            id="contact-message"
+            formControlName="message"
+            rows="6"
+            class="mt-1.5 min-h-[200px] w-full flex-1 resize-y rounded-xl border border-zinc-200 bg-amber-50/30 px-4 py-2.5 text-zinc-900 outline-none ring-violet-500/40 transition placeholder:text-zinc-400 focus:border-violet-400 focus:ring-2"
+            [class.border-red-400]="fieldError('message')"
+            [attr.aria-invalid]="fieldError('message') ? true : null"
+            [attr.aria-describedby]="fieldError('message') ? 'contact-message-err' : null"
+          ></textarea>
+          @if (fieldError('message'); as err) {
+            <p id="contact-message-err" class="mt-1.5 text-sm text-red-600">{{ err }}</p>
+          }
+        </div>
+        <button
+          type="submit"
+          class="mt-auto w-full shrink-0 rounded-xl bg-violet-900 py-3 text-sm font-semibold text-amber-50 transition hover:bg-violet-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-900 sm:w-auto sm:px-10"
+        >
+          Nachricht senden
+        </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
