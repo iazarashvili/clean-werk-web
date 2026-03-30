@@ -38,3 +38,26 @@
     color: var(--cw-accent-hover);
   }
 }
+
+/**
+ * SimplyBook: .sb_time_slots_container sitzt im cross-origin iframe → von außen nicht per Selector stylbar.
+ * Stattdessen wirkt der ganze Kalenderblock optisch kompakter (ruhiger, „enger“ gesetzt).
+ */
+@layer components {
+  .sb-widget-compact {
+    zoom: 0.87;
+    transform-origin: top center;
+  }
+
+  /* Firefox: kein zoom → transform + Breitenkorrektur */
+  @supports not (zoom: 1) {
+    .sb-widget-compact {
+      zoom: 1;
+      transform: scale(0.87);
+      transform-origin: top center;
+      width: 114.94%;
+      max-width: 114.94%;
+      margin-left: -7.47%;
+    }
+  }
+}

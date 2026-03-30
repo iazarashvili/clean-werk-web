@@ -16,7 +16,8 @@ export function getSimplybookBaseUrl(fullWidgetUrl: string): string | null {
 
 /**
  * Farben wie ein ruhiger Kalender: weiße Karte, Grautöne, blaue Links/Zeiten.
- * (SimplyBook wendet das im Widget-Inhalt an – nicht mit globalem CSS überschreibbar.)
+ * Für feinere Anpassung von .sb_time_slots_container: SimplyBook Admin → Custom CSS (Widget CSS).
+ * Unsere App skaliert nur den sichtbaren Widget-Block (.sb-widget-compact in styles.css).
  */
 export const SIMPLYBOOK_THEME_SETTINGS: Record<string, string | boolean | string[]> = {
   timeline_show_end_time: false,

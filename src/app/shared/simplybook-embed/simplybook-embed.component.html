@@ -20,28 +20,30 @@
     }
   </div>
 } @else {
-  <!-- Rahmen wie eine ruhige Karten-UI (SimplyBook-Inhalt kommt aus dem Widget) -->
+  <!-- Rahmen; .sb-widget-compact skaliert das gesamte Widget (Slots liegen im iframe) -->
   <div
-    class="mx-auto w-full max-w-[540px] rounded-2xl border border-slate-200/90 bg-white p-4 shadow-[0_8px_30px_rgb(15,23,42,0.08)] ring-1 ring-slate-100 sm:p-6"
+    class="mx-auto w-full max-w-[540px] overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-3 shadow-[0_8px_30px_rgb(15,23,42,0.08)] ring-1 ring-slate-100 sm:p-4"
   >
-    @if (iframeFallbackSrc; as src) {
-      <iframe
-        [src]="src"
-        title="Booking widget"
-        width="100%"
-        height="1000"
-        class="block w-full rounded-lg border-0 bg-white"
-        loading="lazy"
-        scrolling="no"
-        [attr.frameborder]="0"
-      ></iframe>
-    } @else {
-      <div
-        [id]="containerId"
-        class="min-h-[960px] w-full rounded-lg bg-white"
-        aria-busy="true"
-        aria-label="Kalender wird geladen"
-      ></div>
-    }
+    <div class="sb-widget-compact rounded-lg">
+      @if (iframeFallbackSrc; as src) {
+        <iframe
+          [src]="src"
+          title="Booking widget"
+          width="100%"
+          height="920"
+          class="block w-full rounded-lg border-0 bg-white"
+          loading="lazy"
+          scrolling="no"
+          [attr.frameborder]="0"
+        ></iframe>
+      } @else {
+        <div
+          [id]="containerId"
+          class="min-h-[880px] w-full rounded-lg bg-white"
+          aria-busy="true"
+          aria-label="Kalender wird geladen"
+        ></div>
+      }
+    </div>
   </div>
 }
